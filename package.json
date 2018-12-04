@@ -1,0 +1,32 @@
+{
+  "name": "liri-node-app",
+  "version": "0.0.1",
+  "description": "This node.js project that uses command line inputs to search for songs using Spotify, concerts using Bands in Town, and movies using OMDB.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafactor/liri-node-app.git"
+  },
+  "keywords": [
+    "spotify",
+    "music",
+    "bands",
+    "movies"
+  ],
+  "author": "RB Avila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafactor/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/rafactor/liri-node-app#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^6.1.0",
+    "moment": "^2.22.2",
+    "node-axios": "^0.1.0",
+    "node-spotify-api": "^1.0.7"
+  }
+}

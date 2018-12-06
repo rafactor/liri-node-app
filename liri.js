@@ -1,10 +1,14 @@
+var app = require("./concert");
+
+
 var argv = process.argv
 
 var command = process.argv[2]
 var query = process.argv[3]
 
 function concert() {
-  console.log('concert logic')
+  app.concert(query)
+
 }
 
 function song() {

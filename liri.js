@@ -1,73 +1,111 @@
-require("dotenv").config();
-var keys = require("./keys");
-var Spotify = require('node-spotify-api');
-// var axios = require("axios");
+var argv = process.argv
 
+var command = process.argv[2]
+var query = process.argv[3]
 
-var spotify = new Spotify(keys.spotify);
-var name = 'Let it be'
-var tracks = [];
+function concert() {
+  console.log('concert logic')
+}
 
-spotify.search({ type: 'track', query: name }, function (err, data) {
-  if (err) {
-    return console.log('Error occurred: ' + err);
-  }
+function song() {
+  console.log('song logic')
 
-  var url = data.tracks.href;
-  var limit = data.tracks.limit;
-  var next = data.tracks.next;
-  var previous = data.tracks.previous;
-  var total = data.tracks.total;
+  // call spotify api
+  require("dotenv").config();
+  var keys = require("./keys");
+  var Spotify = require('node-spotify-api');
+  var spotify = new Spotify(keys.spotify);
 
-  var items = data.tracks.items
+  //create new variable to hold the API response
+  var tracks = [];
 
+  //API call
+  spotify.search({
+    type: 'track',
+    query: query
+  }, function (err, data) {
+    if (err) {
+      return console.log('Error occurred: ' + err);
+    }
 
-  //console.log(data);
-  console.log(`Found ${total} tracks matching '${name}':`);
-  console.log(`Results from ${previous} to ${limit}':`);
-  console.log(item[0])
+    var url = data.tracks.href;
+    var limit = data.tracks.limit;
+    var next = data.tracks.next;
+    var previous = data.tracks.previous;
+    var total = data.tracks.total;
 
-  // console.log(items[0]);
+    var items = data.tracks.items
 
-  items.forEach(item => {
-    // console.log(item)
-    //track info
-    let albumType = item.album.albumType;
-    let artists = item.album.artists; //array
-    let spotifyLink = item.album.external_urls.spotify;
-    let href = item.album.href;
-    let id = item.album.id;
-    let images = item.album.images;
-    let name = item.album.name;
-    let released = item.album.release_date;
-    let totalTracks = item.album.totalTracks;
-    let type = item.album.type;
-    let uri = item.album.uri;
+    console.log(`Found ${total} tracks matching '${name}':`);
+    console.log(`Results from ${previous} to ${limit}':`);
+    console.log(item[0])
 
-    //artist info
-    let artistName = item.artists.name;
-    let artistType = item.artists.type;
+    // console.log(items[0]);
 
-    let record = [{
-      // 'number': index,
-      'track': name,
-      'released': released,
-      'type': type,
-      'artist': artistName,
-      'artist type': artistType,
-      'list': artists
-    }]
+    items.forEach((index, item) => {
+      // console.log(item)
+      //track info
+      let artistName = item.artists.name;
+      let artists = item.album.artists; //array
+      let name = item.album.name;
+      let href = item.album.href;
 
-    tracks.push(record)
+      /* not in use
+      let albumType = item.album.albumType;
+      let artistType = item.artists.type;
+      let spotifyLink = item.album.external_urls.spotify;
+      let id = item.album.id;
+      let images = item.album.images;
+      let released = item.album.release_date;
+      let totalTracks = item.album.totalTracks;
+      let type = item.album.type;
+      let uri = item.album.uri;
+      */
+
+      let record = [{
+        'artist': artistName,
+        'track': name,
+        'released': released,
+        'list': artists,
+        'link':href,
+      }]
+
+      tracks.push(record)
+    });
+
+    console.log(tracks)
+
   });
 
-  console.log(tracks)
-  
-});
-// * `concert-this`
+}
 
-// * `spotify-this-song`
+function movie() {
+  console.log('movie logic')
+}
 
-// * `movie-this`
+function doWhat() {
+  console.log('doWhat logic')
+}
 
-// * `do-what-it-says`
+switch (command) {
+  case 'concert-this':
+    concert();
+    break;
+  case 'spotify-this-song':
+    song();
+    break;
+  case 'movie-this':
+    movie();
+    break;
+  case 'do-what-it-says':
+    doWhat();
+    break;
+
+  default:
+    console.log('Please enter one of the following commands and its complement:');
+    console.log("  $ node liri concert-this 'name of the band or artist'");
+    console.log("  $ node liri spotify-this-song 'name of the song'");
+    console.log("  $ node liri movie-this 'name of the movie'");
+    console.log("  $ node liri do-what-it-says 'TDB'");
+
+}

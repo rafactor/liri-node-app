@@ -1,12 +1,10 @@
+var axios = require("axios");
+
 var func = {
   search(query) {
 
     var moment = require('moment');
     
-        // console.log('concert')
-        var axios = require("axios");
-        // Run the axios.get function...
-        // The axios.get function takes in a URL and returns a promise (just like $.ajax)
         axios.get("https://rest.bandsintown.com/artists/" + query + "/events?app_id=codingbootcamp").then(
           function(response) {
             var data = response.data
@@ -32,9 +30,9 @@ var func = {
             });
             
           
-          },
+          })
         
-          function(error) {
+          .catch(function(error) {
             
             if (error.response) {
               // The request was made and the server responded with a status code

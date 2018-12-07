@@ -27,7 +27,7 @@ var func = {
               var date = new Intl.DateTimeFormat('en-US', options).format(datetime)
 
               // console.log(date)
-              console.log(date + ' | ' + city + ', ' + region + ' ' + country + ' at ' + venue)
+              console.log('\n' + date + ' | ' + city + ', ' + region + ' ' + country + ' at ' + venue)
 
             });
             

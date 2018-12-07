@@ -34,8 +34,8 @@ var func = {
 
             var item = data.tracks.items
 
-            console.log(`Found ${total} tracks matching '${query}':`);
-            console.log(`Results from ${previous} to ${limit}':`);
+            console.log(`\n ---------- LIRI Bot - Search for song with '${query}' events, found ${total} results: \n`)
+            console.log(`Results from ${previous} to ${limit}': \n`);
 
             for (let i = 0; i < limit; i++) {
 
@@ -59,8 +59,9 @@ var func = {
 
                 tracks.push(record)
 
-                console.log(' - ' + tracks[i].resultNo + ' | song: ' + tracks[i].track + ' | artist: ' + tracks[i].artist + ' | album: ' + tracks[i].album + ' | released on ' + tracks[i].released + ' | link: ' + tracks[i].link)
+                console.log('#' + tracks[i].resultNo + ': ' + tracks[i].track + ' from: ' + tracks[i].artist + ' | album: ' + tracks[i].album + ' on ' + tracks[i].released + '\n     link: ' + tracks[i].link + '\n')
             };
+                console.log('\n --- end --- \n')
         });
     }
 }

@@ -1,5 +1,5 @@
 var func = {
-    concert(query) {
+  search(query) {
 
         // console.log('concert')
         var axios = require("axios");

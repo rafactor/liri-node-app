@@ -1,1 +1,35 @@
-spotify-this-song,"I Want it That Way"
+{
+	"functions": [{
+			"name": "spotify-this-song",
+			"alternatives": [
+				"I Want it That Way",
+				"Thriller",
+				"Rolling in the Deep",
+				"Macarena",
+				"In my feelings"
+			]
+
+		},
+		{
+			"name": "movie-this",
+			"alternatives": [
+				"Star Wars",
+				"The Lord of the Rings",
+				"Godfather",
+				"Matrix",
+				"Avengers"
+			]
+		},
+		{
+			"name": "concert-this",
+			"alternatives": [
+				"Ariana Grande",
+				"Greta Van Fleet",
+				"GHOST",
+				"Pink",
+				"Josh Groban"
+			]
+
+		}
+	]
+}

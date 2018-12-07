@@ -103,11 +103,11 @@ require("dotenv").config();
 
    * This will search the Bands in Town Artist Events API (`"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`) for an artist and render the following information about each event to the terminal:
 
-     * Name of the venue
+     * location
 
-     * Venue location
+     * Date of the Event (usName of the venue
 
-     * Date of the Event (use moment to format this as "MM/DD/YYYY")
+     * Venue e moment to format this as "MM/DD/YYYY")
 
 2. `node liri.js spotify-this-song '<song name here>'`
 

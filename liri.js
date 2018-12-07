@@ -1,4 +1,4 @@
-var axios = require("axios");
+
 
 var concert = require("./concert");
 var song = require("./songs");
@@ -36,11 +36,12 @@ switch (command) {
     break;
 
   case 'do-what-it-says':
-    what.search(query);
+    what.search();
     break;
 
-  case 'd':
-    what.search(query);
+  case 'w':
+    what.search();
+ 
     break;
 
   default:

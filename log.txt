@@ -1,0 +1,9 @@
+
+log 2018-12-08T18:26:20-05:00 --command: w --query: undefined
+log 2018-12-08T18:26:20-05:00 --command: movie-this --query: Star Wars
+log 2018-12-08T18:26:23-05:00 --command: w --query: undefined
+log 2018-12-08T18:26:23-05:00 --command: movie-this --query: Godfather
+log 2018-12-08T18:26:25-05:00 --command: w --query: undefined
+log 2018-12-08T18:26:25-05:00 --command: spotify-this-song --query: I Want it That Way
+log 2018-12-08T18:26:29-05:00 --command: w --query: undefined
+log 2018-12-08T18:26:29-05:00 --command: spotify-this-song --query: Macarena
